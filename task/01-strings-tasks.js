@@ -176,7 +176,7 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-    throw new Error('Not implemented');
+    return str.split(";");
 }
 
 /**
@@ -203,7 +203,9 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+    return "\u250C" + "\u2500".repeat(width - 2) + "\u2510" + "\n" +
+        ("\u2502" + " ".repeat(width - 2) + "\u2502" + "\n").repeat(height - 2) +
+        "\u2514" + "\u2500".repeat(width - 2) + "\u2518" + "\n";
 }
 
 
@@ -223,7 +225,11 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+    return str.replace(/[a-zA-Z]/g, function(match) {
+        return String.fromCharCode(
+            ((match = match.charCodeAt()) < 91 ? 78 : 110) > match ? match + 13 : match - 13
+        )
+    });
 }
 
 /**
@@ -240,7 +246,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    throw new Error('Not implemented');
+    return (toString.call(value).slice(8, -1) == "String") ? true : false;
 }
 
 
@@ -269,7 +275,7 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+    return 'A234567891JQK'.indexOf(value[0]) + '♣♦♥♠'.indexOf(value.slice(-1)) * 13;
 }
 
 
