@@ -101,7 +101,7 @@ function getArrayOfStrings(arr) {
 /**
  * Removes falsy values from the specified array
  * Falsy values: false, null, 0, "", undefined, and NaN.
- * (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean#Description)
+ * (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refer ence/Global_Objects/Boolean#Description)
  * 
  * @param {array} arr
  * @return {array}
@@ -126,7 +126,10 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-    throw new Error('Not implemented');
+    //1.
+    //return Array.from(arr, x => x.toString().toUpperCase());
+    //2.
+    return arr.map(x => x.toString().toUpperCase());
 }
 
 
@@ -141,7 +144,10 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-    throw new Error('Not implemented');
+    //1.
+    //return Array.from(arr, x => x.toString().length);
+    //2.
+    return arr.map(x => x.toString().length);
 }
 
 /**
@@ -156,7 +162,7 @@ function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 0, 'x'  => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-    throw new Error('Not implemented');
+    return arr.splice(index, 0, item);
 }
 
 /**
