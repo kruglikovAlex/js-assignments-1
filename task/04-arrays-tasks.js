@@ -176,7 +176,7 @@ function insertItem(arr, item, index) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 function getHead(arr, n) {
-    throw new Error('Not implemented');
+    return arr.slice(0, n);
 }
 
 
@@ -191,7 +191,7 @@ function getHead(arr, n) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 function getTail(arr, n) {
-    throw new Error('Not implemented');
+    return arr.slice(-n);
 }
 
 
@@ -216,7 +216,10 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-    throw new Error('Not implemented');
+    /*return arr.reduce(function(a, b) {
+            return (a+"\n").concat(b);
+          });*/
+    return arr.reduce((a, b) => (a + "\n").concat(b));
 }
 
 /**
@@ -231,7 +234,7 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-    throw new Error('Not implemented');
+    return arr.map(x => Math.pow(x, 2));
 }
 
 
