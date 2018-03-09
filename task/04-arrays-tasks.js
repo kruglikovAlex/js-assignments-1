@@ -268,7 +268,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-    throw new Error('Not implemented');
+    return arr.filter((x) => arr.indexOf(x) % 2 != 0);
 }
 
 
@@ -287,7 +287,9 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-    throw new Error('Not implemented');
+    var result = [];
+    arr.map((x, index) => result = result.concat(Array(index + 1).fill(x)));
+    return result;
 }
 
 
@@ -305,7 +307,9 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-    throw new Error('Not implemented');
+    return arr.sort(function(a, b) {
+        return b - a;
+    }).slice(0, 3);
 }
 
 
@@ -323,7 +327,12 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-    throw new Error('Not implemented');
+    //1.
+    return arr.filter(x => x > 0 && Number.isFinite(x)).length;
+    //2.
+    //let count = 0;
+    //arr.map((x) => { if (x > 0 && Number.isFinite(x)) count++; });
+    //return count;
 }
 
 /** 
@@ -340,7 +349,8 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-    throw new Error('Not implemented');
+    let etalon = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+    return arr.map((x) => etalon.indexOf(x)).sort((a, b) => a - b).map((x) => etalon[x]);
 }
 
 /** 
