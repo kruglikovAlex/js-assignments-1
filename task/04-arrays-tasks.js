@@ -366,7 +366,12 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-    throw new Error('Not implemented');
+    let summ = 0;
+    //1.
+    //arr.map((x) => summ += x);
+    //return summ;
+    //2.
+    return arr.length == 0 ? 0 : arr.reduce((a, b) => a + b);
 }
 
 /** 
@@ -382,8 +387,9 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-    throw new Error('Not implemented');
+    return arr.filter((x) => (Number(x) == false) || (Number.isNaN(x)) || (typeof x === "undefined")).length;
 }
+
 
 /**
  * Returns a number of all occurences of the specified item in an array  
@@ -400,7 +406,9 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-    throw new Error('Not implemented');
+    let count = 0;
+    arr.map((x) => x === item ? count++ : 0);
+    return count;
 }
 
 /**
