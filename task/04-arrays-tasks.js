@@ -423,7 +423,10 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-    throw new Error('Not implemented');
+    //1.
+    //return arr.toString();
+    //2.
+    return arr.join();
 }
 
 
@@ -452,7 +455,32 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-    throw new Error('Not implemented');
+    //1.
+    /*return arr.sort(function(a, b) {
+        if (a.country > b.country) {
+            return 1;
+        }
+        if (a.country < b.country) {
+            return -1;
+        }
+        // a.country должно быть равным b.country
+        if (a.country == b.country) {
+            if (a.city > b.city) {
+                return 1;
+            }
+            if (a.city < b.city) {
+                return -1;
+            }
+            // a.city должно быть равным b.city
+            if (a.city == b.city) {
+                return 0;
+            }
+        }
+    });
+    2.
+    return arr.sort((a, b) => (a.country > b.country) ? 1 : (a.country < b.country) ? -1 : (a.city > b.city) ? 1 : (a.city < b.city) ? -1 : 0);
+    3.*/
+    return arr.sort((a, b) => (a.country > b.country) - (a.country < b.country) || (a.city > b.city) - (a.city < b.city));
 }
 
 /**
