@@ -253,7 +253,10 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-    throw new Error('Not implemented');
+    return arr.map(function(x, i, ar) {
+        ar[i + 1] += x;
+        return x;
+    })
 }
 
 /**
@@ -541,7 +544,6 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-    //let ar = arr.sort((a, b) => a - b);
     return arr.sort((a, b) => a - b).filter(function(x, i, arr) {
         if (x != arr[i + 1]) return true;
         else return false;
@@ -579,7 +581,22 @@ function distinct(arr) {
  *   }
  */
 function group(array, keySelector, valueSelector) {
-    throw new Error('Not implemented');
+    /*
+    [   
+        [ 'Belarus', [ 'Brest', 'Grodno', 'Minsk' ] ],
+        [ 'Russia', [ 'Omsk', 'Samara' ] ],
+        [ 'Poland', [ 'Lodz' ] ] 
+    ] 
+   */
+    return array.reduce(function(accum, currentVal) {
+        if (!accum.get(keySelector(currentVal))) {
+            accum.set(keySelector(currentVal), [valueSelector(currentVal)]);
+        } else {
+            let addVal = accum.get(keySelector(currentVal));
+            accum.set(keySelector(currentVal), addVal.concat(valueSelector(currentVal)));
+        }
+        return accum;
+    }, new Map());
 }
 
 
@@ -595,7 +612,7 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-    throw new Error('Not implemented');
+    return arr.reduce((acc, val) => acc.concat(childrenSelector(val)), []);
 }
 
 
