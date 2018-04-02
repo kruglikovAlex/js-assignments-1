@@ -629,7 +629,8 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-    throw new Error('Not implemented');
+    //[0, 1, 2, 3, 4].reduce( (accumulator, currentValue) => accumulator + currentValue );
+    return indexes.reduce((p, c) => p[c], arr);
 }
 
 
@@ -652,7 +653,12 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    throw new Error('Not implemented');
+    let l = arr.length;
+    let r = Math.round(l / 2);
+    let f = Math.floor(l / 2);
+    let a = arr.splice(0, f);
+    let b = arr.splice(r - f);
+    return b.concat(arr, a);
 }
 
 
